@@ -52,15 +52,21 @@ for i in range (int(a)):
   web = random.choice( list (cloud.keys() ) )#input('subreddit:')
   sub = reddit.subreddit( web )    
   meme = sub.hot(limit = 20)   
+  
   post = list(meme) 
   # check the memes repitation in each subreddi dictionary.
   
-  test = check(n, web)
+  
+  
+  #change that to n
+  test = check(4, web)
   print("updating cloud", cloud)
   print("title:", post[test].title)
   print('memeurl:',post[test].url)
   print("sub:",sub)
   print('obj:', (post[test]))
+  
+  #saving the image inside lol folder
   img_data = requests.get(post[test].url).content
   with open(os.getcwd()+'/lol/'+ post[test].title, 'wb') as book:
   	book.write(img_data)
