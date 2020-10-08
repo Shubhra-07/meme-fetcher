@@ -27,14 +27,14 @@ star = []
 #debug
 def check(e, file):
   if e not in list(cloud[file]):
-    print('adding,,',e)
+    print('adding:',e)
     cloud[file].append(e)
     return e
   
   
   else:
     print(f'---{e}---')
-    e = random.randint(1,20)
+    e = random.randint(1,19)
     print('newpick:', e)
     return check(e, file)
   
@@ -68,7 +68,15 @@ for i in range (int(a)):
   
   #saving the image inside lol folder
   img_data = requests.get(post[test].url).content
-  with open(os.getcwd()+'/lol/'+ post[test].title, 'wb') as book:
+  directory = f"{os.getcwd()}"+ "/here/"
+
+  if not os.path.exists(directory):
+   os.makedirs(directory)
+
+
+
+
+  with open(os.getcwd()+'/here/'+ post[test].title, 'wb') as book:
   	book.write(img_data)
 
   print('------------------')
